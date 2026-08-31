@@ -21,7 +21,7 @@ function Home() {
 function About() {
   return (
     <div className="about-page">
-      <img src="./src/assets/images/about.png" alt="about" />
+      <img src="./about.png" alt="about" />
       <div className="about-hero">
         <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
         <p>Our mission is to enliven your road trip with the perfect travel van rental. Our vans are recertified before each trip to ensure your travel plans can go off without a hitch.<br></br> (Hitch costs extra 😉)</p>
