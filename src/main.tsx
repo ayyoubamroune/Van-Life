@@ -1,56 +1,48 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
-  BrowserRouter, Routes, Route, Link
+  BrowserRouter, Routes, Route
 } from 'react-router-dom'
 import './index.css'
-import aboutImg from './assets/images/about.png'
-
-function Home() {
-  return (
-    <div className="home-page">
-      <div className="home-hero">
-        <h1>You got the travel plans, we got the travel vans.</h1>
-        <p>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
-        <Link to="/vans" className="link-button">Find your van</Link>
-      </div>
-      <footer className='footer'>Ⓒ 2022 #VANLIFE</footer>
-    </div>
-  )
-}
-
-function About() {
-  return (
-    <div className="about-page">
-      <img src={aboutImg} alt="about" />
-      <div className="about-hero">
-        <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
-        <p>Our mission is to enliven your road trip with the perfect travel van rental. Our vans are recertified before each trip to ensure your travel plans can go off without a hitch.<br></br> (Hitch costs extra 😉)</p>
-        <p>Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.</p>
-        <div className='about-hero-buttons'>
-          <p>Your destination is waiting.<br></br>
-            Your van is ready.</p>
-          <Link to="/vans" className="link-button-about">Explore our vans</Link>
-        </div>
-      </div>
-      <footer className='footer'>Ⓒ 2022 #VANLIFE</footer>
-    </div>
-  )
-}
+import Home from './pages/Home'
+import About from './pages/About'
+import Vans from './pages/Vans/Vans'
+import VanDetail from './pages/Vans/VanDetail'
+import Layout from './components/Layout'
+import Dashboard from './pages/Host/Dashboard'
+import Income from './pages/Host/Income'
+import Reviews from './pages/Host/Reviews'
+import HostLayout from './components/HostLayout'
+import HostVans from './pages/Host/HostVans'
+import HostVanLayout from './components/HostVansLayout'
+import HostVanPricing from './pages/Host/HostVanPricing'
+import HostVanPhotos from './pages/Host/HostVanPhotos'
+import HostVanDetail from './pages/Host/HostVanDetail'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <nav>
-        <Link to="/" className='van'>#VANLIFE</Link>
-        <section className='sec'>
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
-        </section>
-      </nav>
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path='vans/:id' element={<VanDetail />} />
+          <Route path='host' element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path='income' element={<Income />} />
+            <Route path='vans' element={<HostVans />} />
+            <Route path='vans/:id' element={<HostVanLayout />} >
+              <Route index element={<HostVanDetail />} />
+              <Route path='pricing' element={<HostVanPricing />} />
+              <Route path='photos' element={<HostVanPhotos />} />
+            </Route>
+
+            <Route path='reviews' element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<h1>Not Found!</h1>} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,

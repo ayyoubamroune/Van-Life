@@ -1,70 +1,91 @@
-body{
+body {
   margin: 0;
   padding: 0;
-  background-color: black;
-  color: white;
+  background-color: #FFF7ED;
+  transition: background-color 0.3s ease-in-out;
   min-height: 100vh;
+  color: #161616;
+  font-family: "Inter",sans-serif;
 }
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-nav {
-  background-color:#FFF7ED;
+
+header {
+  background-color: #FFF7ED;
   height: 112px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
 }
-nav > a 
-{
+
+header>a {
   text-decoration: none;
   color: black;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
 }
-.sec
-{
+
+.sec {
   display: flex;
   gap: 20px;
 }
 
-.sec > a
-{
+.sec>a {
   text-decoration: none;
   color: #4D4D4D;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
+  transition: all 0.3s ease-in-out;
+
 }
 
-nav > a.van
-{
+.sec>a:hover {
+  text-decoration: underline;
+  font-weight: 700;
+  color:#161616
+}
+
+.sec>a.selected {
+  text-decoration: underline;
+  font-weight: 700;
+  color:#161616
+}
+
+header>a.van {
   font-weight: 900;
   font-size: 26px;
+  transition: all 0.3s ease-in-out;
+
 }
 
-.home-page
-{
+header>a.van:hover {
+  color: #FF8C38;
+} 
+
+.home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   flex: 1;
   width: 100%;
 }
 
-.home-hero
-{
+.home-hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url('./assets/images/home.png');
   width: 100%;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -74,18 +95,21 @@ nav > a.van
   padding: 100px 20px;
   gap: 30px;
   flex: 1;
+  color: white;
+
 }
-.footer 
-{
-  padding: 16px; 
+
+.footer {
+  padding: 16px;
   font-size: 14px;
   width: 100%;
   text-align: center;
-  background-color: #252525; 
-  color:#AAAAAA;
+  background-color: #252525;
+  color: #AAAAAA;
+  margin-top: auto;
 }
-.link-button
-{
+
+.link-button-home {
   text-decoration: none;
   background-color: #FF8C38;
   font-weight: 700;
@@ -100,27 +124,27 @@ nav > a.van
   border-radius: 8px;
   margin-top: 50px;
 }
-.about-page
-{
+
+.about-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   flex: 1;
   width: 100%;
-  margin : 0;
+  margin: 0;
   background-color: #FFF7ED;
   color: #161616;
 }
-.about-page img
-{
+
+.about-page img {
   width: 100%;
   height: 250px;
   object-fit: cover;
   object-position: center 46%;
 }
-.about-hero
-{
+
+.about-hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,35 +153,34 @@ nav > a.van
   gap: 30px;
   flex: 1;
   width: 100%;
-  max-width: 550px; 
+  max-width: 550px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-.about-hero h1, .about-hero p
-{
-  font-family: 'Inter',sans-serif;
+.about-hero h1,
+.about-hero p {
+  font-family: 'Inter', sans-serif;
   margin: 0;
   color: #161616;
   padding: 0;
-  margin:0;
+  margin: 0;
   width: 100%;
 }
 
-.about-hero h1
-{
+.about-hero h1 {
   font-size: 36px;
   font-weight: 700;
   line-height: 48px;
 }
-.about-hero p
-{
+
+.about-hero p {
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
 }
-.about-hero-buttons
-{
+
+.about-hero-buttons {
   text-decoration: none;
   background-color: #FFCC8D;
   display: flex;
@@ -173,17 +196,18 @@ nav > a.van
   margin-bottom: 20px;
   color: #161616;
 }
-.about-hero-buttons p{
-  font-size:24px;
+
+.about-hero-buttons p {
+  font-size: 24px;
   font-weight: 700;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 32px;
   margin: 0;
   margin-bottom: 20px;
   padding: 0;
 }
-.link-button-about
-{
+
+.link-button-about {
   text-decoration: none;
   background-color: #161616;
   font-weight: 700;
@@ -193,7 +217,379 @@ nav > a.van
   align-items: center;
   color: white;
   width: 100%;
-  max-width:174px;
+  max-width: 174px;
   height: 49.831932067871094px;
   border-radius: 8px;
+}
+
+.vans-container {
+  background-color: #FFF7ED;
+  color: #161616;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vans {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding-top: 30px;
+  margin-bottom: 40px;
+}
+
+.van {
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+}
+
+.van>img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.van-info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+
+}
+
+.van-info span {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.van-info h3,
+.van-info p {
+  margin-bottom: 0;
+}
+
+.van-info h3 {
+  text-align: left;
+}
+
+.van-info p {
+  text-align: right;
+}
+
+.van-type {
+  color: #FFEAD0;
+  font-weight: 600;
+  font-size: 16px;
+  width: 86px;
+  min-height: 34px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.van-type.simple {
+  background-color: #FF8C38;
+}
+
+.van-type.rugged {
+  background-color: #115E59;
+}
+
+.van-type.luxury {
+  background-color: #161616;
+}
+
+.vans-title {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+}
+
+.vans-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  margin-bottom: 46px;
+}
+
+.vans-title button {
+  text-decoration: none;
+  color: #4D4D4D;
+  background-color: #FFEAD0;
+  font-weight: 700;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 174px;
+  height: 49.831932067871094px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.vans-title button:hover {
+  background-color: #FF8C38;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.clear-btn {
+  color: #4D4D4D;
+}
+
+.vans-link {
+  text-decoration: none;
+  color: #161616;
+}
+
+.van-detail-container {
+  padding: 27px;
+}
+
+.van-detail-container .back-button {
+  color: black;
+  text-decoration: none;
+}
+
+.van-detail-container .back-button:visited {}
+
+.van-detail-container .back-button span {
+  text-decoration: underline;
+}
+
+.van-detail {
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+}
+
+.van-detail img {
+  border-radius: 5px;
+  margin-block: 47px;
+}
+
+.van-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.van-detail>i {
+  align-self: flex-start;
+}
+
+.van-detail .van-price {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.van-detail .van-price span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.van-detail .link-button {
+  background-color: #FF8C38;
+  color: white;
+  font-size: 1.125rem;
+  border: none;
+  width: 100%;
+  text-decoration: none;
+  background-color: #FF8C38;
+  font-weight: 700;
+  display: flex;
+  font-family: "Inter", sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 49.831932067871094px;
+  border-radius: 8px;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.van-detail .link-button:hover {
+  background-color: #f9bb70;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.host-nav
+{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding:16px;
+}
+.host-nav a {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+
+}
+.host-nav a:hover {
+  text-decoration: underline;
+  font-weight: 700;
+  color:#161616
+}
+.host-nav a.selected {
+  text-decoration: underline;
+  font-weight: 700;
+  color:#161616
+}
+.host-vans
+{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+.host-van{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #FFFFFF;
+  padding: 8px;
+}
+.host-van > img{
+  width:70px ;
+  border-radius: 4px;
+  object-fit: cover;
+  
+}
+.host-van-info{
+  line-height: 1;
+  padding: 0px 8px;
+  
+}
+.host-van-info h2{
+  margin-bottom: 0;
+}
+
+.host-vans > a{
+  text-decoration: none;
+  color: #161616;
+}
+.host-van-detail-container{
+  padding: 60px 40px;
+
+}
+.host-van-detail{
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  padding: 20px ;
+}
+.host-van-detail > div {
+  display: flex;
+  max-height: 160px;
+}
+.host-van-detail > div > img {
+  width:160px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.host-van-detail > div > div{
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+  gap: 20px;
+}
+.host-van-detail > div > div >section{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.host-van-detail > div > div h1{
+  margin: 0;
+}
+.host-van-detail > div > div >section>p{
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.host-van-detail > div > div >section>p span{
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.host-van-detail>nav {
+  display: flex;
+  gap:30px;
+  padding-top: 20px;
+}
+.host-van-detail>nav>a{
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.25s ease-in-out;
+}
+.host-van-detail>nav>a.selected,
+.host-van-detail>nav>a:hover{
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.host-van-detail>div>p>span{
+  font-weight: 700;
+}
+.host-van-detail>div>p{
+  margin: 0;  
+}
+.host-van-detail>div.details-info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0px;
+}
+.host-van-pricing{
+  font-weight: 500;
+  font-size: 0.95rem;
+  color:#4D4D4D
+}
+.host-van-pricing>span{
+  font-size: 1.3rem;
+  color:#161616;
+}
+.van-host-images{
+  display: flex;
+  gap: 20px;
+  width: 103px;
+  object-fit: cover;
+  padding: 20px 0px;
+}
+.host-van-detail-container > section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.back-button{
+  text-decoration: none;
+  color: #858585;
+  font-size: 1rem;
+}
+.back-button > span
+{
+  color: #201F1D;
+  text-decoration: underline;
+  padding: 10px;
+}
+.back-button:hover{
+  font-weight: 700;
 }
